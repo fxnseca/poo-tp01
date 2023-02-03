@@ -9,7 +9,10 @@ class Sala{
 
 public:
     Sala(int,int);
-
+    int getSala() const;
+    void setSala(int sala);
+    int getCapacidade() const;
+    void setCapacidade(int capacidade);
 };
 
 #endif
