@@ -1,6 +1,8 @@
 #ifndef ALUNO_H
 #define ALUNO_H
 
+#include "pessoa.h"
+
 using namespace std;
 
 class Aluno{

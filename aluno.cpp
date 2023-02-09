@@ -4,7 +4,7 @@
 using namespace std;
 
 Aluno::Aluno(string nome, int telefone, int cpf, int matricula, string curso){}
-Aluno ::~Aluno(){}
+Aluno::~Aluno(){}
 
 string Aluno::getAlunoNome() const { return nome; }
 void Aluno::setAlunoNome(string nome){
