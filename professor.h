@@ -12,8 +12,8 @@ public:
     Professor(string = "");
     ~Professor();
 
-    string getProfCurso() const;
-    void setProfCurso(string curso);
+    string getProfessorCurso() const;
+    void setProfessorCurso(string curso);
 };
 
 #endif
