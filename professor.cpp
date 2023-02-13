@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Professor::Professor(string curso){}
+Professor::Professor(string curso): curso(curso){}
 Professor ::~Professor(){}
 
 string Professor::getProfessorCurso() const { return curso; }

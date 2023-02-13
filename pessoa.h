@@ -5,18 +5,17 @@
 using namespace std;
 class Pessoa {
     string nome;
-    int cpf;
-    int telefone;
+    string cpf;
+    string telefone;
 public:
-    Pessoa(string = "", int = 0, int = 0);
+    Pessoa(string = "", string = 0, string = 0);
     ~Pessoa();
 
-    string getPessoaNome() const;
-    void setPessoaNome(string);
-    int getPessoaCPF() const;
-    void setPessoaCPF(int);
-    int getPessoaTelefone() const;
-    void setPessoaTelefone(int);
+    string getNome() const;
+    void setNome(string);
+    string getTelefone() const;
+    void setTelefone(string) ;
+    string getCpf()const;
+    void setCpf(string) ;
 };
- 
 #endif

@@ -9,10 +9,10 @@ class Professor: public Pessoa{
     string curso;
 
 public:
-    Professor(string);
+    Professor(string = "");
     ~Professor();
     string getProfessorCurso() const;
-    void setProfessorCurso(string nome);
+    void setProfessorCurso(string curso);
 };
 
 #endif

@@ -10,7 +10,7 @@ class Gestor : public Pessoa{
     string senha;
 
 public:
-    Gestor(string, string);
+    Gestor(string = "", string = "");
     ~Gestor();
 
     string getGestorLogin() const;
