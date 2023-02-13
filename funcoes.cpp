@@ -6,20 +6,20 @@
 #include "curso.h"
 #include "sala.h"
 #include "aluno.h"
-#include "prof.h"
+#include "professor.h"
 #include "gestor.h"
 
 void menu_principal(){
     int choice;
 
-    cout << "==============================";
-    cout << "MENU";
-    cout << "==============================";
+    cout << "\n==============================";
+    cout << "\n             MENU";
+    cout << "\n==============================\n";
     cout << "1. Gerenciar Aluno\n";
     cout << "2. Gerenciar Professor\n";
     cout << "3. Gerenciar Curso\n";
     cout << "4. Cadastrar Sala\n";
-    cout << "5. Gerar Relatório\n";
+    cout << "5. Gerar Relatorio\n";
     cout << "==============================\n";
     cout << "INFORME SUA ESCOLHA: ";
     cin >> choice;
@@ -28,9 +28,9 @@ void menu_principal(){
         case 1: //GERENCIAR ALUNO
             int op_aluno;
 
-            cout << "==============================";
-            cout << "SUBMENU (ALUNO)";
-            cout << "==============================";
+            cout << "\n==============================";
+            cout << "\n       SUBMENU (ALUNO)";
+            cout << "\n==============================\n";
             cout << "1. Cadastrar\n";
             cout << "2. Consultar\n";
             cout << "3. Excluir\n";
@@ -66,9 +66,9 @@ void menu_principal(){
         case 2: //GERENCIAR PROFESSOR
             int op_prof;
 
-            cout << "==============================";
-            cout << "SUBMENU (PROFESSOR)";
-            cout << "==============================";
+            cout << "\n==============================";
+            cout << "\n     SUBMENU (PROFESSOR)";
+            cout << "\n==============================\n";
             cout << "1. Cadastrar\n";
             cout << "2. Consultar\n";
             cout << "3. Excluir\n";
@@ -104,9 +104,9 @@ void menu_principal(){
         case 3: //GERENCIAR CURSO
             int op_curso;
 
-            cout << "==============================";
-            cout << "SUBMENU (CURSO)";
-            cout << "==============================";
+            cout << "\n==============================";
+            cout << "\n       SUBMENU (CURSO)";
+            cout << "\n==============================\n";
             cout << "1. Cadastrar\n";
             cout << "2. Consultar\n";
             cout << "3. Excluir\n";
@@ -133,7 +133,7 @@ void menu_principal(){
                 /* volta ao menu inicial*/
                 break;
             default:
-                cout << "Escolha inválida.\n";
+                cout << "ESCOLHA INVALIDA.\n";
                 break;
             }
             break;

@@ -1,30 +1,22 @@
 #ifndef GESTOR_H
 #define GESTOR_H
 #include <string>
+#include "pessoa.h"
 
 using namespace std;
 
-class Gestor{
-    string nome;
-    int telefone;
-    int cpf;
+class Gestor : public Pessoa{
     string login;
-    int senha;
+    string senha;
 
 public:
-    Gestor(string, int, int, string, int);
+    Gestor(string, string);
     ~Gestor();
 
-    string getGestorNome() const;
-    void setGestorNome(string nome);
-    int getGestorTelefone() const;
-    void setGestorTelefone(int telefone);
-    int getGestorCpf() const;
-    void setGestorCpf(int cpf);
     string getGestorLogin() const;
-    void setGestorLogin(string login);
-    int getGestorSenha() const;
-    void setGestorSenha(int senha);
+    void setGestorLogin(string);
+    string getGestorSenha() const;
+    void setGestorSenha(string);
 };
 
 #endif
