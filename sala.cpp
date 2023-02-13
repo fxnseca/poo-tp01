@@ -5,8 +5,8 @@
 using namespace std;
 
 //construtor
-Sala::Sala(int sala, int capacidade){}
-Sala ::~Sala(){}
+Sala::Sala(int sala, int capacidade, string cursoDia){}
+Sala::~Sala(){}
 
 int Sala::getSala() const{
     return sala;
@@ -20,4 +20,11 @@ int Sala::getCapacidade() const{
 }
 void Sala::setCapacidade(int capacidade){
     this->capacidade = capacidade;
+}
+
+string Sala::getCursoDia(int i) const{
+    return cursoDia[i];
+} 
+void Sala::setCursoDia(string curso, int i){
+    this->cursoDia[i] = curso;
 }
