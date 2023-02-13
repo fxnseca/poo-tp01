@@ -11,14 +11,8 @@ public:
     Professor(string);
     ~Professor();
 
-    string getProfNome() const;
-    void setProfNome(string nome);
-    int getProfTelefone() const;
-    void setProfTelefone(int telefone);
-    int getProfCpf() const;
-    void setProfCpf(int cpf);
     string getProfCurso() const;
-    void setProfCurso(string nome);
+    void setProfCurso(string curso);
 };
 
 #endif
