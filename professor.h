@@ -5,13 +5,10 @@
 using namespace std;
 
 class Professor{
-    string nome;
-    int telefone;
-    int cpf;
     string curso;
 
 public:
-    Professor(string, int, int, string);
+    Professor(string);
     ~Professor();
 
     string getProfNome() const;
