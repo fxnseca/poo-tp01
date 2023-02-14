@@ -4,11 +4,11 @@
 
 using namespace std;
 
-Aluno::Aluno(int matricula, string curso): matricula(matricula), curso(curso){}
+Aluno::Aluno(string nome, string cpf, string telefone, string matricula, string curso): Pessoa(nome, cpf, telefone), matricula(matricula), curso(curso){}
 Aluno::~Aluno(){}
 
-int Aluno::getAlunoMatricula() const { return matricula; }
-void Aluno::setAlunoMatricula(int matricula){
+string Aluno::getAlunoMatricula() const { return matricula; }
+void Aluno::setAlunoMatricula(string matricula){
     this->matricula = matricula;
 }
 

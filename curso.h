@@ -12,7 +12,7 @@ class Curso{
     int sala[2];
     int quantidadeAlunos;
 public:
-    Curso(string="", string="", string="");
+    Curso(string="", string="", int = 0, string="");
     ~Curso();
 
     string getMateria() const;
@@ -24,7 +24,7 @@ public:
     int getSala(int) const;
     void setSala(int, int);
     int getQuantidadeAlunos() const;
-    void setQuantidadeAlunos();
+    void setQuantidadeAlunos(int);
 };
 
 #endif

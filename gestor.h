@@ -5,14 +5,12 @@
 
 using namespace std;
 
-class Gestor : public Pessoa{
+class Gestor: public Pessoa{
     string login;
     string senha;
-
 public:
-    Gestor(string = "", string = "");
+    Gestor(string = "", string = "", string = "", string = "", string = "");
     ~Gestor();
-
     string getGestorLogin() const;
     void setGestorLogin(string);
     string getGestorSenha() const;

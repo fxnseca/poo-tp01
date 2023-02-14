@@ -6,6 +6,6 @@
 
 using namespace std;
 
-int main() {
-    menu_principal();
+int main(int argc, char *argv[]) {
+    leituraEMenu(argv[1]);
 };

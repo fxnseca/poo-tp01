@@ -6,15 +6,15 @@
 using namespace std;
 
 class Aluno : public Pessoa{
-    int matricula;
+    string matricula;
     string curso;
 
 public:
-    Aluno(int, string);
+    Aluno(string, string, string, string, string);
     ~Aluno();
 
-    int getAlunoMatricula() const;
-    void setAlunoMatricula(int matricula);
+    string getAlunoMatricula() const;
+    void setAlunoMatricula(string matricula);
     string getAlunoCurso() const;
     void setAlunoCurso(string curso);
 };

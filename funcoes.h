@@ -1,6 +1,17 @@
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
-void menu_principal();
-void leArquivo(int*, int*);
+#include "curso.h"
+#include "sala.h"
+#include "aluno.h"
+#include "professor.h"
+#include "gestor.h"
+
+#include <vector>
+
+using namespace std;
+
+void leituraEMenu(char*);
+void leArquivo(int*, int*, int*, char*, vector<Sala>*, vector<Curso>*, vector<Aluno>*);
+void criaAdministrador(int*, vector<Gestor>*);
 #endif
