@@ -78,7 +78,14 @@ void leituraEMenu(char *argv){
             }
             switch (choice){
                 case 1:
-                    // crud_aluno();
+                    criaAluno(numeroAlunos,alunos,numeroCursos,cursos);
+                    cout << "\nAluno Cadastrado com suceeso, deseja continuar? (s ou n): ";
+                    char resposta;
+                    cin >> resposta;
+                    if (resposta == 'S' || resposta == 'S'){
+                        leituraEMenu(argv);
+                    };
+
                 break;
                 case 2:
                 /* consultar aluno*/
@@ -334,9 +341,40 @@ void leArquivo(int *numeroSalas, int *numeroCursos, int *numeroAlunos, char *arg
         cout << "Erro ao abrir arquivo ou arquivo inexistente na entrada" << endl;
     };
 };
+
 void criaAdministrador(int *numeroGestores, vector<Gestor> *gestor){
     string login = "ADMIN", senha = "123456";
     Gestor g("","","",login, senha);
     (*gestor).push_back(g);
     (*numeroGestores) += 1;
+};
+
+void criaAluno(int *numeroAlunos, vector<Aluno> *alunos, int *numeroCursos, vector<Curso> *cursos){
+    cout << "\n==============================";
+    cout << "\n       CADASTRO DE ALUNO";    
+    cout << "\n==============================\n";
+    string nome, cpf, telefone, matricula, curso;
+    int j;
+    cout << "Informe o nome: ";
+    cin.ignore();
+    getline(cin,nome);
+    cout << "Informe o cpf: ";
+    cin.ignore();
+    getline(cin,cpf);
+    cout << "Informe o telefone: ";
+    cin.ignore();
+    getline(cin,telefone);
+    cout << "Informe a matricula: ";
+    cin.ignore();
+    getline(cin,matricula);
+    cout << "\nInforme o numero referente ao curso:" << endl;
+    for (int i = 0; i < (*numeroCursos); i++)
+    {
+        cout << i+1 << "-> " << (*cursos)[i].getMateria() << endl;
+    }
+    cin >> j;
+    curso = (*cursos)[j-1].getMateria();
+    Aluno alunoAux(nome, cpf, telefone, matricula, curso);
+    (*alunos).push_back(alunoAux);
+    (*numeroAlunos) += 1;
 };

@@ -14,4 +14,5 @@ using namespace std;
 void leituraEMenu(char*);
 void leArquivo(int*, int*, int*, char*, vector<Sala>*, vector<Curso>*, vector<Aluno>*);
 void criaAdministrador(int*, vector<Gestor>*);
+void criaAluno(int*, vector<Aluno>*, int*, vector<Curso>*);
 #endif
