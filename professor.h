@@ -11,6 +11,7 @@ class Professor: public Pessoa{
 public:
     Professor(string = "");
     ~Professor();
+
     string getProfessorCurso() const;
     void setProfessorCurso(string curso);
 };
