@@ -10,10 +10,10 @@ class Curso{
     string id;
     string dias[2];
     int sala[2];
-
+    int quantidadeAlunos;
 public:
-    Curso(string, string, string);
-    virtual ~Curso();
+    Curso(string="", string="", string="");
+    ~Curso();
 
     string getMateria() const;
     void setMateria(string);
@@ -23,6 +23,8 @@ public:
     void setDias(string, int);
     int getSala(int) const;
     void setSala(int, int);
+    int getQuantidadeAlunos() const;
+    void setQuantidadeAlunos();
 };
 
 #endif

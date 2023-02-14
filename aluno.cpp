@@ -16,5 +16,3 @@ string Aluno::getAlunoCurso() const { return curso; }
 void Aluno::setAlunoCurso(string curso){
     this->curso = curso;
 }
-
-void cadastro()

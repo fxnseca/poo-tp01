@@ -3,7 +3,7 @@
 #include "curso.h"
 
 using namespace std;
-Curso::Curso(string materia, string id, string dias): materia(materia){}
+Curso::Curso(string materia, string id, string dias): materia(materia), id(id){{dias = dias;}}
 Curso::~Curso() {}
 
 string Curso::getMateria() const{ 
@@ -26,9 +26,17 @@ string Curso::getDias(int i) const{
 void Curso::setDias(string dia, int i){
     this->dias[i] = dia;
 }
+
 int Curso::getSala(int i) const{ 
     return sala[i];
 }
 void Curso::setSala(int sala, int i){
     this->sala[i] = sala;
+}
+
+int Curso::getQuantidadeAlunos() const{ 
+    return quantidadeAlunos;
+}
+void Curso::setQuantidadeAlunos(){
+    this->quantidadeAlunos++;
 }

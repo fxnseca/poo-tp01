@@ -4,6 +4,7 @@
 
 using namespace std;
 class Pessoa {
+private:
     string nome;
     string cpf;
     string telefone;

@@ -1,0 +1,13 @@
+4;1;10;
+4;2;5;
+4;3;5;
+4;4;3;
+3;1;Curso de Desenvolvimento Web Completo;1;Segunda;Quarta;
+3;1;Introdução à Inteligência Artificial com Python;2;Terça;Quinta;
+3;1;Gestão de Projetos: Aprendendo a Planejar e Executar Projetos Eficientemente;3;Quarta;Sexta;
+3;1;Marketing Digital: Aprenda a Alavancar seus Negócios Online;4;Segunda;Terça;
+3;1;Criação de Jogos com Unity;5;Terça;Sexta;
+3;1;Produção Musical: Aprenda a Criar e Mixar Música Eletrônica;6;Quinta;Sexta;
+3;1;Data Science com R: Análise de Dados do Zero ao Avançado;7;Terça;Quarta;
+3;1;Introdução à Programação com Python para Iniciantes;8;Segunda;Quinta;
+
