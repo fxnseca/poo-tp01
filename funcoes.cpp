@@ -24,226 +24,208 @@ void leituraEMenu(char *argv){
     vector<Gestor> g;//Inicializador do vetor de gestor
     vector<Gestor> *gestor = &g;//Vetor de gestor
 
-    int nSalas = 0, nCursos = 0, nGestores = 0, nAlunos = 0;//Inicializadores do número de itens em cada vetor
-    int *numeroSalas = &nSalas;
-    int *numeroCursos = &nCursos;
-    int *numeroGestores = &nGestores;
-    int *numeroAlunos = &nAlunos;
-
-    criaAdministrador(numeroGestores, gestor);
+    criaAdministrador(gestor);
     if(argv != ""){
-        leArquivo(numeroSalas, numeroCursos, numeroAlunos, argv, salas, cursos, alunos);
-        *argv = 'c';
+        leArquivo(argv, salas, cursos, alunos);
     }
-    int j = (*cursos)[0].getQuantidadeAlunos();
-    int choice;
 
-    cout << "\n==============================";
-    cout << "\n             MENU";
-    cout << "\n==============================\n";
-    cout << "1. Gerenciar Aluno\n";
-    cout << "2. Gerenciar Professor\n";
-    cout << "3. Gerenciar Curso\n";
-    cout << "4. Cadastrar Sala\n";
-    cout << "5. Gerar Relatorio\n";
-    cout << "==============================\n";
-    cout << "INFORME SUA ESCOLHA: ";
-    cin >> choice;
-    while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
-    {
-        cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
-        cin >> choice;
+    char continuar = 's';
+    while(continuar == 's' || continuar =='S'){
+        int choice;
+        cout << "\n==============================";
+        cout << "\n             MENU";
+        cout << "\n==============================\n";
+        cout << "1. Gerenciar Aluno\n";
+        cout << "2. Gerenciar Professor\n";
+        cout << "3. Gerenciar Curso\n";
+        cout << "4. Cadastrar Sala\n";
+        cout << "5. Gerar Relatorio\n";
         cout << "==============================\n";
-    }
-    
-    switch (choice) {
-        case 1: //GERENCIAR ALUNO
-            cout << "\n==============================";
-            cout << "\n       SUBMENU (ALUNO)";
-            cout << "\n==============================\n";
-            cout << "1. Cadastrar\n";
-            cout << "2. Consultar\n";
-            cout << "3. Excluir\n";
-            cout << "4. Atualizar\n";
-            cout << "5. Voltar ao MENU INICIAL\n";
-            cout << "==============================\n";
-            cout << "INFORME SUA ESCOLHA: ";
+        cout << "INFORME SUA ESCOLHA: ";
+        cin >> choice;
+        while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
+        {
+            cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
             cin >> choice;
-
-            while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
-            {
-                cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
-                cin >> choice;
+            cout << "==============================\n";
+        }
+        
+        switch (choice) {
+            case 1: //GERENCIAR ALUNO
+                cout << "\n==============================";
+                cout << "\n       SUBMENU (ALUNO)";
+                cout << "\n==============================\n";
+                cout << "1. Cadastrar\n";
+                cout << "2. Consultar\n";
+                cout << "3. Excluir\n";
+                cout << "4. Atualizar\n";
+                cout << "5. Voltar ao MENU INICIAL\n";
                 cout << "==============================\n";
-            }
-            switch (choice){
-                case 1:
-                    criaAluno(numeroAlunos,alunos,numeroCursos,cursos);
-                    cout << "\nAluno Cadastrado com suceeso, deseja continuar? (s ou n): ";
-                    char resposta;
-                    cin >> resposta;
-                    if (resposta == 'S' || resposta == 'S'){
-                        leituraEMenu(argv);
-                    };
+                cout << "INFORME SUA ESCOLHA: ";
+                cin >> choice;
 
+                while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
+                {
+                    cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
+                    cin >> choice;
+                    cout << "==============================\n";
+                }
+                switch (choice){
+                    case 1:
+                        criaAluno(alunos,cursos);
+                    break;
+                    case 2:
+                        consultaAluno(alunos);
+                    break;
+                    case 3:
+                        excluiAluno(alunos);
+                    break;
+                    case 4:
+                        atualizaAluno(alunos);
+                    break;
+                    case 5:
+                    break;
+                default:
+                    cout << "Escolha inválida.\n";
+                    break;
+                }
                 break;
-                case 2:
-                /* consultar aluno*/
-                break;
-                case 3:
-                /* excluir aluno*/
-                break;
-                case 4:
-                /* atualizar aluno*/
-                break;
-                case 5:
-                    leituraEMenu(argv);
-                break;
-            default:
-                cout << "Escolha inválida.\n";
-                break;
-            }
             break;
-        break;
 
-        case 2: //GERENCIAR PROFESSOR
-            cout << "\n==============================";
-            cout << "\n     SUBMENU (PROFESSOR)";
-            cout << "\n==============================\n";
-            cout << "1. Cadastrar\n";
-            cout << "2. Consultar\n";
-            cout << "3. Excluir\n";
-            cout << "4. Atualizar\n";
-            cout << "5. Voltar ao MENU INICIAL\n";
-            cout << "==============================\n";
-            cout << "INFORME SUA ESCOLHA: ";
-            cin >> choice;
-            while (choice < 1 && choice > 5)
-            {
-                cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
-                cin >> choice;
+            case 2: //GERENCIAR PROFESSOR
+                cout << "\n==============================";
+                cout << "\n     SUBMENU (PROFESSOR)";
+                cout << "\n==============================\n";
+                cout << "1. Cadastrar\n";
+                cout << "2. Consultar\n";
+                cout << "3. Excluir\n";
+                cout << "4. Atualizar\n";
+                cout << "5. Voltar ao MENU INICIAL\n";
                 cout << "==============================\n";
-            }
-            // if(choice == 5){
-            //     menu_principal()
-            // }else{
-            //     crudProf(choice)
-            // }
-            // switch (choice){
-            //     case 1:
-            //     /* cadastrar professor*/
-            //     break;
-            //     case 2:
-            //     /* consultar professor*/
-            //     break;
-            //     case 3:
-            //     /* excluir professor*/
-            //     break;
-            //     case 4:
-            //     /* atualizar professor*/
-            //     break;
-            //     case 5:
-            //         menu_principal();
-            //     break;
-            // default:
-            //     cout << "Escolha inválida.\n";
-            //     break;
-            // }
-            // break;
-        break;
-
-        case 3: //GERENCIAR CURSO
-            cout << "\n==============================";
-            cout << "\n       SUBMENU (CURSO)";
-            cout << "\n==============================\n";
-            cout << "1. Cadastrar\n";
-            cout << "2. Consultar\n";
-            cout << "3. Excluir\n";
-            cout << "4. Atualizar\n";
-            cout << "5. Voltar ao MENU INICIAL\n";
-            cout << "==============================\n";
-            cout << "INFORME SUA ESCOLHA: ";
-            cin >> choice;
-            while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
-            {
-                cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
+                cout << "INFORME SUA ESCOLHA: ";
                 cin >> choice;
-                cout << "==============================\n";
-            }
-            switch (choice){
-                case 1:
-                /* cadastrar curso*/
-                break;
-                case 2:
-                /* consultar curso*/
-                break;
-                case 3:
-                /* excluir curso*/
-                break;
-                case 4:
-                /* atualizar curso*/
-                break;
-                case 5:
-                    leituraEMenu(argv);
-                break;
-            default:
-                cout << "ESCOLHA INVALIDA.\n";
-                break;
-            }
+                while (choice < 1 && choice > 5)
+                {
+                    cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
+                    cin >> choice;
+                    cout << "==============================\n";
+                }
+                // switch (choice){
+                //     case 1:
+                //     /* cadastrar professor*/
+                //     break;
+                //     case 2:
+                //     /* consultar professor*/
+                //     break;
+                //     case 3:
+                //     /* excluir professor*/
+                //     break;
+                //     case 4:
+                //     /* atualizar professor*/
+                //     break;
+                //     case 5:
+                //         menu_principal();
+                //     break;
+                // default:
+                //     cout << "Escolha inválida.\n";
+                //     break;
+                // }
+                // break;
             break;
-        break;
 
-        case 4: //GERENCIAR SALA
-            cout << "\n==============================";
-            cout << "\n       CADASTRO DE SALA";
-            cout << "\n==============================\n";
-           
-        break;
-
-        case 5: //GERENCIAR RELATORIO
-            cout << "\n==============================";
-            cout << "\n       SUBMENU (RELATORIO)";
-            cout << "\n==============================\n";
-            cout << "1. Aluno\n";
-            cout << "2. Professor\n";
-            cout << "3. Curso\n";
-            cout << "4. Salas\n";
-            cout << "5. Voltar ao MENU INICIAL\n";
-            cout << "==============================\n";
-            cout << "INFORME SUA ESCOLHA: ";
-            cin >> choice;
-            while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
-            {
-                cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
-                cin >> choice;
+            case 3: //GERENCIAR CURSO
+                cout << "\n==============================";
+                cout << "\n       SUBMENU (CURSO)";
+                cout << "\n==============================\n";
+                cout << "1. Cadastrar\n";
+                cout << "2. Consultar\n";
+                cout << "3. Excluir\n";
+                cout << "4. Atualizar\n";
+                cout << "5. Voltar ao MENU INICIAL\n";
                 cout << "==============================\n";
-            }
-            switch (choice){
-                case 1:
-                /* cadastrar curso*/
+                cout << "INFORME SUA ESCOLHA: ";
+                cin >> choice;
+                while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
+                {
+                    cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
+                    cin >> choice;
+                    cout << "==============================\n";
+                }
+                switch (choice){
+                    case 1:
+                    /* cadastrar curso*/
+                    break;
+                    case 2:
+                    /* consultar curso*/
+                    break;
+                    case 3:
+                    /* excluir curso*/
+                    break;
+                    case 4:
+                    /* atualizar curso*/
+                    break;
+                    case 5:
+                    break;
+                default:
+                    cout << "ESCOLHA INVALIDA.\n";
+                    break;
+                }
                 break;
-                case 2:
-                /* consultar curso*/
-                break;
-                case 3:
-                /* excluir curso*/
-                break;
-                case 4:
-                /* atualizar curso*/
-                break;
-                case 5:
-                    leituraEMenu(argv);
-                break;
-            default:
-                cout << "ESCOLHA INVALIDA.\n";
-                break;
-            }
             break;
-        break;
-    }
+
+            case 4: //GERENCIAR SALA
+                cout << "\n==============================";
+                cout << "\n       CADASTRO DE SALA";
+                cout << "\n==============================\n";
+            
+            break;
+
+            case 5: //GERENCIAR RELATORIO
+                cout << "\n==============================";
+                cout << "\n       SUBMENU (RELATORIO)";
+                cout << "\n==============================\n";
+                cout << "1. Aluno\n";
+                cout << "2. Professor\n";
+                cout << "3. Curso\n";
+                cout << "4. Salas\n";
+                cout << "5. Voltar ao MENU INICIAL\n";
+                cout << "==============================\n";
+                cout << "INFORME SUA ESCOLHA: ";
+                cin >> choice;
+                while (choice != 1 && choice !=2 && choice !=3 &&choice != 4 && choice !=5)
+                {
+                    cout << "OPCAO INVALIDA. INFORME SUA ESCOLHA: ";
+                    cin >> choice;
+                    cout << "==============================\n";
+                }
+                switch (choice){
+                    case 1:
+                    /* cadastrar curso*/
+                    break;
+                    case 2:
+                    /* consultar curso*/
+                    break;
+                    case 3:
+                    /* excluir curso*/
+                    break;
+                    case 4:
+                    /* atualizar curso*/
+                    break;
+                    case 5:
+                    break;
+                default:
+                    cout << "ESCOLHA INVALIDA.\n";
+                    break;
+                }
+                break;
+            break;
+        };
+        cout << "Deseja retornar ao menu principal? (S ou N): ";
+        cin >> continuar;
+    };
 };
 
-void leArquivo(int *numeroSalas, int *numeroCursos, int *numeroAlunos, char *argv, vector<Sala> *salas, vector<Curso> *cursos, vector<Aluno> *alunos){
+void leArquivo(char *argv, vector<Sala> *salas, vector<Curso> *cursos, vector<Aluno> *alunos){
     ifstream arquivo(argv);//Abrindo arquivo para leitura
     if(arquivo.is_open()){
         string linha;
@@ -255,7 +237,6 @@ void leArquivo(int *numeroSalas, int *numeroCursos, int *numeroAlunos, char *arg
                 pos = linha.find(";");
                 choice = linha.substr(0,pos);
                 if(choice == "1"){
-                    (*numeroAlunos) += 1;
 
                     linha = linha.substr(pos+1);
                     pos = linha.find(";");
@@ -289,7 +270,7 @@ void leArquivo(int *numeroSalas, int *numeroCursos, int *numeroAlunos, char *arg
                     }else{
                         (*cursos)[7].setQuantidadeAlunos(1);
                     }
-                    string matricula = "22.2.40" + (to_string ((*numeroAlunos)+1));
+                    string matricula = "22.2.40" + (to_string ((*alunos).size()+1));
                     Aluno alunoAux(nome, cpf, telefone, matricula, curso);
                     (*alunos).push_back(alunoAux);
                 }
@@ -320,7 +301,6 @@ void leArquivo(int *numeroSalas, int *numeroCursos, int *numeroAlunos, char *arg
 
                     Curso cursoAux(materia, id,quantidadeAlunos, *dias);
                     (*cursos).push_back(cursoAux);
-                    (*numeroCursos) += 1;
                 }
             }
             else if(choice == "4"){//Lendo dados das salas
@@ -332,7 +312,6 @@ void leArquivo(int *numeroSalas, int *numeroCursos, int *numeroAlunos, char *arg
                 int capacidade = (stoi(linha.substr(0,pos)));
                 Sala salaAux(sala, capacidade, "");
                 (*salas).push_back(salaAux);
-                (*numeroSalas) += 1;
             }
         }
         arquivo.close();
@@ -342,14 +321,13 @@ void leArquivo(int *numeroSalas, int *numeroCursos, int *numeroAlunos, char *arg
     };
 };
 
-void criaAdministrador(int *numeroGestores, vector<Gestor> *gestor){
+void criaAdministrador(vector<Gestor> *gestor){
     string login = "ADMIN", senha = "123456";
     Gestor g("","","",login, senha);
     (*gestor).push_back(g);
-    (*numeroGestores) += 1;
 };
 
-void criaAluno(int *numeroAlunos, vector<Aluno> *alunos, int *numeroCursos, vector<Curso> *cursos){
+void criaAluno(vector<Aluno> *alunos, vector<Curso> *cursos){
     cout << "\n==============================";
     cout << "\n       CADASTRO DE ALUNO";    
     cout << "\n==============================\n";
@@ -357,18 +335,15 @@ void criaAluno(int *numeroAlunos, vector<Aluno> *alunos, int *numeroCursos, vect
     int j;
     cout << "Informe o nome: ";
     cin.ignore();
-    getline(cin,nome);
+    getline(cin,nome, '\n');
     cout << "Informe o cpf: ";
-    cin.ignore();
-    getline(cin,cpf);
+    getline(cin,cpf, '\n');
     cout << "Informe o telefone: ";
-    cin.ignore();
-    getline(cin,telefone);
+    getline(cin,telefone, '\n');
     cout << "Informe a matricula: ";
-    cin.ignore();
-    getline(cin,matricula);
+    getline(cin,matricula, '\n');
     cout << "\nInforme o numero referente ao curso:" << endl;
-    for (int i = 0; i < (*numeroCursos); i++)
+    for (int i = 0; i < (cursos->size()); i++)
     {
         cout << i+1 << "-> " << (*cursos)[i].getMateria() << endl;
     }
@@ -376,5 +351,71 @@ void criaAluno(int *numeroAlunos, vector<Aluno> *alunos, int *numeroCursos, vect
     curso = (*cursos)[j-1].getMateria();
     Aluno alunoAux(nome, cpf, telefone, matricula, curso);
     (*alunos).push_back(alunoAux);
-    (*numeroAlunos) += 1;
+    cout << "\nAluno Cadastrado com sucesso. Total de alunos: "<<(*alunos).size()<< endl;
 };
+
+void consultaAluno(vector<Aluno> *alunos){
+    string matriculaProcurada;
+    cout << "\n==============================";
+    cout << "\n       CONSULTA DE ALUNO";    
+    cout << "\n==============================\n";
+    cout << "Informe a matricula a ser procurada:";
+    cin >> matriculaProcurada;
+    for (int i = 0; i < (*alunos).size(); i++){
+        // cout << "nome aluno " << i << ":" <<(*alunos)[i].getAlunoMatricula() <<endl;
+        if (matriculaProcurada == (*alunos)[i].getAlunoMatricula()){
+            cout << "Aluno encontrado: " << (*alunos)[i].getNome() << endl << "Telefone para contato: " << (*alunos)[i].getTelefone(); 
+            return;
+        }
+    } 
+    cout << "Aluno nao encontrado! ";
+}
+void excluiAluno(vector<Aluno> *alunos){
+    string matriculaProcurada;
+    cout << "\n==============================";
+    cout << "\n       EXCLUSAO DE ALUNO";    
+    cout << "\n==============================\n";
+    cout << "Informe a matricula do aluno a ser excluído do sistema:";
+    cin >> matriculaProcurada;
+    for (int i = 0; i < (*alunos).size(); i++){
+    // cout << "nome aluno " << i << ":" <<(*alunos)[i].getAlunoMatricula() <<endl;
+        if (matriculaProcurada == (*alunos)[i].getAlunoMatricula()){
+            (*alunos).erase((*alunos).begin() + i);
+            cout<< "Aluno exluido do sistema com sucesso!";
+            return;
+        };
+    }
+    cout << "Aluno não encontrado! ";
+}
+
+void atualizaAluno(vector<Aluno> *alunos){
+    string matriculaProcurada;
+    string aux;
+    cout << "\n==============================";
+    cout << "\n       ATUALIZACAO DE ALUNO";    
+    cout << "\n==============================\n";
+    cout << "Informe a matricula do aluno a ser atualizado:";
+    cin >> matriculaProcurada;
+    for (int i = 0; i < (*alunos).size(); i++){
+    // cout << "nome aluno " << i << ":" <<(*alunos)[i].getAlunoMatricula() <<endl;
+        if (matriculaProcurada == (*alunos)[i].getAlunoMatricula()){
+            cout << "Aluno encontrado! Abaixo atualize os campos!" << endl;
+            cout << "Nome:";
+            getline(cin, aux, '\n');
+            (*alunos)[i].setNome(aux);
+            cout << "CPF:";
+            getline(cin, aux, '\n');
+            (*alunos)[i].setCpf(aux);
+            cout << "Telefone:";
+            getline(cin, aux, '\n');
+            (*alunos)[i].setTelefone(aux);
+            cout << "Matricula:";
+            getline(cin, aux, '\n');
+            (*alunos)[i].setAlunoMatricula(aux);
+            cout << "Curso:";
+            getline(cin, aux, '\n');
+            (*alunos)[i].setAlunoCurso(aux);
+        }
+    }
+    cout << "Aluno nao encontrado! ";
+}

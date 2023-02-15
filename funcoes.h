@@ -12,7 +12,10 @@
 using namespace std;
 
 void leituraEMenu(char*);
-void leArquivo(int*, int*, int*, char*, vector<Sala>*, vector<Curso>*, vector<Aluno>*);
-void criaAdministrador(int*, vector<Gestor>*);
-void criaAluno(int*, vector<Aluno>*, int*, vector<Curso>*);
+void leArquivo(char*, vector<Sala>*, vector<Curso>*, vector<Aluno>*);
+void criaAdministrador(vector<Gestor>*);
+void criaAluno(vector<Aluno>*,vector<Curso>*);
+void consultaAluno(vector<Aluno>*);
+void excluiAluno(vector<Aluno>*);
+void atualizaAluno(vector<Aluno>*);
 #endif
